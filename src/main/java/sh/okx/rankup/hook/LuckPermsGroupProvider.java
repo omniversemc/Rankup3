@@ -44,6 +44,15 @@ public class LuckPermsGroupProvider implements GroupProvider {
     ImmutableContextSet.Builder builder = ImmutableContextSet.builder();
     builder.addAll(baseContextSet);
 
+    // Omniverse Skyblock integration
+    if (Bukkit.getServer().getPluginManager().isPluginEnabled("Skyblock")) {
+      String profile = OmniverseSkyblockHook.getProfile(uuid);
+      Bukkit.getLogger().info("Profile: " + profile);
+      if (profile != null) {;
+        builder.add("profile", profile);
+      }
+    }
+
     return builder.build();
   }
 
