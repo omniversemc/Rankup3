@@ -14,11 +14,11 @@ public class PrestigeSerialized extends RankSerialized {
   private final String from;
   private final String to;
 
-  public PrestigeSerialized(String rank, String next, String displayName,
+  public PrestigeSerialized(String rank, String next, String displayName, boolean ignoreContext,
       List<String> commands, List<String> requirements,
       Map<String, List<String>> prestigeRequirements,
       Map<String, String> messages, String from, String to) {
-    super(rank, next, displayName, commands, requirements, prestigeRequirements, messages);
+    super(rank, next, displayName, ignoreContext, commands, requirements, prestigeRequirements, messages);
     this.from = from;
     this.to = to;
   }

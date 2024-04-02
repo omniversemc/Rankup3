@@ -24,9 +24,10 @@ public class Rankups extends RankList<Rank> {
     RankElement<Rank> last = getTree().last();
     String lastRankDisplayName = plugin.getConfig().getString("placeholders.last-rank-display-name");
     String lastRankName = last.getRank().getNext();
+    boolean lastRankIgnoreContext = last.getRank().isIgnoreContext();
     if (lastRankDisplayName == null) {
       lastRankDisplayName = lastRankName;
     }
-    last.setNext(new RankElement<>(new LastRank(plugin, lastRankName, lastRankDisplayName), null));
+    last.setNext(new RankElement<>(new LastRank(plugin, lastRankName, lastRankDisplayName, lastRankIgnoreContext), null));
   }
 }

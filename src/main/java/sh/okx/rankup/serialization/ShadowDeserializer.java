@@ -18,6 +18,7 @@ public class ShadowDeserializer {
       String rank = value.get("rank");
       String next = value.get("next");
       String displayName = value.get("display-name");
+      boolean ignoreContext = value.getOrElse("ignore-context", false);
       List<String> commands = value.getOrElse("commands", Collections.emptyList());
       List<String> requirements;
       Map<String, List<String>> prestigeRequirements;
@@ -49,7 +50,7 @@ public class ShadowDeserializer {
         messages = Collections.emptyMap();
       }
 
-      ranksList.add(new RankSerialized(rank, next, displayName, commands, requirements, prestigeRequirements, messages));
+      ranksList.add(new RankSerialized(rank, next, displayName, ignoreContext, commands, requirements, prestigeRequirements, messages));
     }
     return ranksList;
   }

@@ -26,7 +26,7 @@ public class Prestiges extends RankList<Prestige> {
   @Override
   protected void addLastRank(RankupPlugin plugin) {
     RankElement<Prestige> last = getTree().last();
-    last.setNext(new RankElement<>(new LastPrestige(plugin, last.getRank().getNext()), null));
+    last.setNext(new RankElement<>(new LastPrestige(plugin, last.getRank().getNext(), last.getRank().isIgnoreContext()), null));
   }
 
 }

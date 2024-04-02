@@ -23,13 +23,14 @@ public class Rankup extends Rank {
         serialized.getNext(),
         serialized.getRank(),
         serialized.getDisplayName(),
+        serialized.isIgnoreContext(),
         RankRequirementsFactory.getRequirements(plugin, serialized.getRequirements(), serialized.getPrestigeRequirements()),
         Objects.requireNonNull(serialized.getCommands(), "rank commands are null"));
   }
 
-  protected Rankup(ConfigurationSection section, RankupPlugin plugin, String next, String rank, String displayName,
+  protected Rankup(ConfigurationSection section, RankupPlugin plugin, String next, String rank, String displayName, boolean ignoreContext,
       RankRequirements requirements,
       List<String> commands) {
-    super(section, plugin, next, rank, displayName, requirements, commands);
+    super(section, plugin, next, rank, displayName, ignoreContext, requirements, commands);
   }
 }

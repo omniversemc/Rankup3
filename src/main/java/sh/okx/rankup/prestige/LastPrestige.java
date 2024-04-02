@@ -7,8 +7,8 @@ import sh.okx.rankup.ranks.Rank;
 import sh.okx.rankup.ranks.requirements.LastRankRequirements;
 
 public class LastPrestige extends Prestige {
-  public LastPrestige(RankupPlugin plugin, String name) {
-    super(null, plugin, null, name, new LastRankRequirements(), Collections.emptyList(), null, null);
+  public LastPrestige(RankupPlugin plugin, String name, boolean ignoreContext) {
+    super(null, plugin, null, name, ignoreContext, new LastRankRequirements(), Collections.emptyList(), null, null);
   }
 
   @Override

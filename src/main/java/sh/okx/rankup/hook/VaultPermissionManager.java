@@ -28,13 +28,19 @@ public class VaultPermissionManager implements PermissionManager {
     if (!provider.hasGroupSupport()) {
       return null;
     }
-    String lpContext = plugin.getConfig().getString("luckperms-context");
-    if (lpContext != null && !lpContext.isEmpty()) {
-      RegisteredServiceProvider<LuckPerms> lpProvider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
-      if (lpProvider != null) {
-        return LuckPermsGroupProvider.createFromString(lpProvider.getProvider(), lpContext);
-      }
+    String lpContext = plugin.getConfig().getString("luckperms-context", "");
+    // START OMNI
+    RegisteredServiceProvider<LuckPerms> lpProvider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
+    if (lpProvider != null) {
+      return LuckPermsGroupProvider.createFromString(lpProvider.getProvider(), lpContext);
     }
+//    if (lpContext != null && !lpContext.isEmpty()) {
+//      RegisteredServiceProvider<LuckPerms> lpProvider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
+//      if (lpProvider != null) {
+//        return LuckPermsGroupProvider.createFromString(lpProvider.getProvider(), lpContext);
+//      }
+//    }
+    // END OMNI
 
     return new VaultGroupProvider(provider);
   }

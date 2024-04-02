@@ -13,6 +13,7 @@ public class RankSerialized {
   private final String next;
 
   private final String displayName;
+  private final boolean ignoreContext;
 
   private final List<String> commands;
 

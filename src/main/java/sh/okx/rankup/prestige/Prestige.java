@@ -23,8 +23,8 @@ public class Prestige extends Rank {
   @Getter
   private final String to;
 
-  protected Prestige(ConfigurationSection section, RankupPlugin plugin, String next, String rank, RankRequirements requirements, List<String> commands, String from, String to) {
-    super(section, plugin, next, rank, rank, requirements, commands);
+  protected Prestige(ConfigurationSection section, RankupPlugin plugin, String next, String rank, boolean ignoreContext, RankRequirements requirements, List<String> commands, String from, String to) {
+    super(section, plugin, next, rank, rank, ignoreContext, requirements, commands);
     this.from = from;
     this.to = to;
   }
@@ -36,6 +36,7 @@ public class Prestige extends Rank {
     return new Prestige(section, plugin,
         section.getString("next"),
         section.getString("rank"),
+        section.getBoolean("ignore-context"),
         new ListRankRequirements(requirements),
         section.getStringList("commands"),
         section.getString("from"),

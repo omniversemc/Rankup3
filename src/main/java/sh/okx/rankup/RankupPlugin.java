@@ -92,6 +92,7 @@ public class RankupPlugin extends JavaPlugin {
   private String errorMessage;
   private PermissionManager permissionManager = new VaultPermissionManager(this);
   private EconomyProvider economyProvider = new VaultEconomyProvider();
+  public static RankupPlugin rankupPluginInstance; // OMNI
 
   public RankupPlugin() {
     super();
@@ -105,6 +106,7 @@ public class RankupPlugin extends JavaPlugin {
 
   @Override
   public void onEnable() {
+    rankupPluginInstance = this; // OMNI
     UpdateNotifier notifier = new UpdateNotifier(new VersionChecker(this));
 
     reload(true);

@@ -20,6 +20,7 @@ public class YamlDeserializer {
       String rank = section.getString("rank");
       String next = section.getString("next");
       String displayName = section.getString("display-name");
+      boolean ignoreContext = section.getBoolean("ignore-context", false);
       List<String> commands = section.getStringList("commands");
       List<String> requirements;
       Map<String, List<String>> prestigeRequirements;
@@ -51,7 +52,7 @@ public class YamlDeserializer {
         messages = Collections.emptyMap();
       }
 
-      ranksList.add(new RankSerialized(rank, next, displayName, commands, requirements, prestigeRequirements, messages));
+      ranksList.add(new RankSerialized(rank, next, displayName, ignoreContext, commands, requirements, prestigeRequirements, messages));
     }
     return ranksList;
   }

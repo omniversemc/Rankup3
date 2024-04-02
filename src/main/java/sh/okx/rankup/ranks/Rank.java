@@ -25,6 +25,8 @@ public class Rank {
   @Getter
   protected final String displayName;
   @Getter
+  protected final boolean ignoreContext;
+  @Getter
   protected final RankRequirements requirements;
   @Getter
   protected final List<String> commands;

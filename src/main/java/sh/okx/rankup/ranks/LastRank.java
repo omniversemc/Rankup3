@@ -6,8 +6,8 @@ import sh.okx.rankup.RankupPlugin;
 import sh.okx.rankup.ranks.requirements.LastRankRequirements;
 
 public class LastRank extends Rank {
-  public LastRank(RankupPlugin plugin, String name, String displayName) {
-    super(null, plugin, null, name, displayName, new LastRankRequirements(), Collections.emptyList());
+  public LastRank(RankupPlugin plugin, String name, String displayName, boolean ignoreContext) {
+    super(null, plugin, null, name, displayName, ignoreContext, new LastRankRequirements(), Collections.emptyList());
   }
 
   @Override
